@@ -22,26 +22,36 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 
   return (
     <div className="space-y-8">
-      <section>
+      <section className="bg-transparent py-8">
         <div className="layout">
-          <div>
-            <h1>Doctor Finder</h1>
-            <input type="search" placeholder="Keyword" />
-            <select>
-              <option>Hospital</option>
-            </select>
-            <select>
-              <option>Specialization</option>
-            </select>
+          <h1 className="text-primary text-center">Doctor Finder</h1>
+          <div className="space-y-4 mt-8">
+            <div className="max-w-xl mx-auto">
+              <input
+                className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm"
+                type="search"
+                placeholder="Type to search..."
+              />
+            </div>
+            <div className="flex gap-4 max-w-xl mx-auto flex-col sm:flex-row">
+              <select className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm">
+                <option>Hospital</option>
+              </select>
+              <select className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm">
+                <option>Specialization</option>
+              </select>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
         <div className="layout">
-          {data?.data.map((doctor) => {
-            return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
-          })}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {data?.data.map((doctor) => {
+              return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
+            })}
+          </div>
         </div>
       </section>
     </div>
