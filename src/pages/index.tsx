@@ -21,26 +21,30 @@ const HomePage: NextPage<HomePageProps> = (props) => {
   )
 
   return (
-    <section>
-      <div className="layout">
-        <div>
-          <h1>Doctor Finder</h1>
-          <input type="search" placeholder="Keyword" />
-          <select>
-            <option>Hospital</option>
-          </select>
-          <select>
-            <option>Specialization</option>
-          </select>
+    <div className="space-y-8">
+      <section>
+        <div className="layout">
+          <div>
+            <h1>Doctor Finder</h1>
+            <input type="search" placeholder="Keyword" />
+            <select>
+              <option>Hospital</option>
+            </select>
+            <select>
+              <option>Specialization</option>
+            </select>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-        {data?.data.map((doctor) => {
-          return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
-        })}
-      </div>
-    </section>
+      <section>
+        <div className="layout">
+          {data?.data.map((doctor) => {
+            return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
+          })}
+        </div>
+      </section>
+    </div>
   )
 }
 

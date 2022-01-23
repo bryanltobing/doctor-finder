@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from 'next/link'
 
 import { Doctor } from 'types/api'
 
@@ -9,7 +9,8 @@ type DoctorCardProps = {
 const DoctorCard = ({ doctor }: DoctorCardProps) => {
   return (
     <div>
-      {doctor.name} <img src={doctor.photo.formats.thumbnail} />
+      <Link href={`/doctors/${doctor.slug}`}>{doctor.name}</Link>
+      <img src={doctor.photo.formats.thumbnail} />
       <p>{doctor.hospital[0].name}</p>
       <div dangerouslySetInnerHTML={{ __html: doctor.about }} />
       <p>{doctor.specialization.name}</p>
