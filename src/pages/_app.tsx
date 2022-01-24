@@ -13,9 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Doctor Finder</title>
       </Head>
       <SWRConfig value={{ fetcher, dedupingInterval: 5000 }}>
-        <div className="bg-[#fbfbfb]">
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </SWRConfig>
     </>
   )

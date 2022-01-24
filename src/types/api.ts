@@ -16,6 +16,7 @@ export type Doctor = {
     name: string
   }
   hospital: Hospital[]
+  about_preview: string
 }
 
 export type Hospital = {

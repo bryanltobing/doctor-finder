@@ -13,7 +13,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
   const router = useRouter()
 
   return (
-    <div className="/ bg-white border border-muted border-opacity-25 overflow-hidden p-4 rounded-md sm:p-6">
+    <div className="bg-white border border-muted border-opacity-25 overflow-hidden p-4 rounded-md sm:p-6">
       <div className="flex flex-col gap-4 items-center sm:flex-row sm:gap-2">
         <div className="flex justify-center w-full sm:w-1/3">
           <Image
@@ -42,13 +42,15 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
               {doctor.specialization.name}
             </span>
           </p>
-          <p className="font-bold">About : </p>
-          <div
-            className="/ break-words font-normal line-clamp-4"
-            dangerouslySetInnerHTML={{
-              __html: doctor.about,
-            }}
-          />
+          <div>
+            <p className="font-bold">About : </p>
+            <div
+              className="/ break-words font-normal line-clamp-4"
+              dangerouslySetInnerHTML={{
+                __html: doctor.about_preview,
+              }}
+            />
+          </div>
 
           <Button
             variant="secondary"

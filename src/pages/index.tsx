@@ -35,7 +35,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-primary-500 py-8 to-primary-50">
+      <header className="bg-gradient-to-r from-primary-500 py-8 to-primary-50">
         <div className="layout">
           <h1 className="flex gap-2 items-center text-white w-full sm:gap-4">
             Doctor Finder <HiShieldCheck />
@@ -127,7 +127,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
       <section className="py-8">
         <div className="layout">
