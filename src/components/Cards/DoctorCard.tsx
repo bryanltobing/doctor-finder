@@ -13,7 +13,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
   const router = useRouter()
 
   return (
-    <div className="/ border-muted overflow-hidden p-4 bg-white rounded-md border border-opacity-25 sm:p-6">
+    <div className="/ bg-white border border-muted border-opacity-25 overflow-hidden p-4 rounded-md sm:p-6">
       <div className="flex flex-col gap-4 items-center sm:flex-row sm:gap-2">
         <div className="flex justify-center w-full sm:w-1/3">
           <Image
@@ -21,11 +21,12 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
             className="rounded-md"
             width={120}
             height={120}
+            alt={`Photo of ${doctor.name}`}
           />
         </div>
         <div className="flex flex-col space-y-2 w-full sm:w-2/3">
           <Link href={`/doctors/${doctor.slug}`}>
-            <a className="focus:underline focus:ring-secondary-500 focus:outline-none">
+            <a className="focus:outline-none focus:ring-secondary-500 focus:underline">
               <h4 className="a">{doctor.name}</h4>
             </a>
           </Link>
@@ -37,13 +38,13 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
 
           <p className="font-bold">
             Specialization :{' '}
-            <span className="inline-flex px-2 py-1 font-normal text-white bg-primary-500 rounded-md">
+            <span className="bg-gradient-to-r font-normal from-primary-500 inline-flex px-2 py-1 rounded-md text-white to-primary-200">
               {doctor.specialization.name}
             </span>
           </p>
           <p className="font-bold">About : </p>
           <div
-            className="/ line-clamp-4 font-normal break-words"
+            className="/ break-words font-normal line-clamp-4"
             dangerouslySetInnerHTML={{
               __html: doctor.about,
             }}

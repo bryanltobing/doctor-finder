@@ -38,24 +38,24 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         disabled={disabled}
         className={clsxm(
-          'inline-flex items-center px-4 py-2 font-semibold rounded',
+          'font-semibold inline-flex items-center px-4 py-2 rounded',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
           'shadow-sm',
-          'transition-colors duration-75',
+          'duration-75 transition-colors',
           //#region  //*=========== Variants ===========
           [isCentered && 'justify-center'],
           [
             variant === 'primary' && [
-              'bg-primary-500 text-white',
+              'bg-gradient-to-r from-primary-500 to-primary-300 text-white',
               'border border-primary-600',
-              'hover:bg-primary-600 hover:text-white',
+              'hover:from-primary-600 hover:to-secondary-400 hover:text-white',
               'active:bg-primary-500',
               'disabled:bg-primary-400 disabled:hover:bg-primary-400',
             ],
             variant === 'secondary' && [
-              'bg-secondary-500 text-white',
+              'bg-gradient-to-r from-secondary-500 to-secondary-300 text-white',
               'border border-secondary-600',
-              'hover:bg-secondary-600 hover:text-white',
+              'hover:from-secondary-600 hover:to-secondary-400 hover:text-red',
               'active:bg-secondary-500',
               'disabled:bg-secondary-400 disabled:hover:bg-secondary-400',
             ],
@@ -69,5 +69,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
+
+Button.displayName = 'Button'
 
 export default Button
