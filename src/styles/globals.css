@@ -9,27 +9,27 @@
   }
 
   .h0 {
-    @apply font-bold font-sans text-3xl md:text-5xl;
+    @apply font-sans text-3xl font-bold md:text-5xl;
   }
 
   h1,
   .h1 {
-    @apply font-bold font-sans text-2xl md:text-4xl;
+    @apply font-sans text-2xl font-bold md:text-4xl;
   }
 
   h2,
   .h2 {
-    @apply font-bold font-sans text-xl md:text-3xl;
+    @apply font-sans text-xl font-bold md:text-3xl;
   }
 
   h3,
   .h3 {
-    @apply font-bold font-sans text-lg md:text-2xl;
+    @apply font-sans text-lg font-bold md:text-2xl;
   }
 
   h4,
   .h4 {
-    @apply font-bold font-sans text-base md:text-lg;
+    @apply font-sans text-base font-bold md:text-lg;
   }
 
   body,
@@ -37,9 +37,8 @@
     @apply font-sans text-sm md:text-base;
   }
 
-  a,
-  .a {
-    @apply cursor-pointer font-sans hover:underline text-inherit text-secondary-500 transition-all;
+  a {
+    @apply font-sans text-inherit text-secondary-500 transition-all cursor-pointer hover:underline;
   }
 
   input {
@@ -54,7 +53,7 @@
   }
 
   .inset-center {
-    @apply absolute left-1/2 top-1/2;
+    @apply absolute top-1/2 left-1/2;
     transform: translate(-50%, -50%);
   }
 }
