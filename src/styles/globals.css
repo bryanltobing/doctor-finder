@@ -39,6 +39,10 @@
 
   a,
   .a {
-    @apply cursor-pointer font-sans hover:underline text-inherit text-secondary transition-all;
+    @apply cursor-pointer font-sans hover:underline text-inherit text-secondary-500 transition-all;
+  }
+
+  input {
+    @apply focus:outline-none;
   }
 }

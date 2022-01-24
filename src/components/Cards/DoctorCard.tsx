@@ -1,15 +1,19 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import { Doctor } from 'types/api'
+import Button from 'components/_base/Button'
 
 type DoctorCardProps = {
   doctor: Doctor
 }
 
 const DoctorCard = ({ doctor }: DoctorCardProps) => {
+  const router = useRouter()
+
   return (
-    <div className="border-muted shadow-muted / overflow-hidden p-4 bg-white rounded-md shadow-sm sm:p-6">
+    <div className="bg-white border border-muted border-opacity-25 overflow-hidden p-4 rounded-md sm:p-6">
       <div className="flex flex-col gap-4 items-center sm:flex-row sm:gap-2">
         <div className="flex justify-center w-full sm:w-1/3">
           <Image
@@ -21,7 +25,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
         </div>
         <div className="flex flex-col space-y-2 w-full sm:w-2/3">
           <Link href={`/doctors/${doctor.slug}`}>
-            <a className="focus:outline-none focus:ring-secondary focus:underline">
+            <a className="focus:outline-none focus:ring-secondary-500 focus:underline">
               <h4 className="a">{doctor.name}</h4>
             </a>
           </Link>
@@ -33,23 +37,24 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
 
           <p className="font-bold">
             Specialization :{' '}
-            <span className="bg-primary / inline-flex px-2 py-1 font-normal text-white rounded-md">
+            <span className="bg-primary font-normal inline-flex px-2 py-1 rounded-md text-white">
               {doctor.specialization.name}
             </span>
           </p>
           <p className="font-bold">About : </p>
           <div
-            className="line-clamp-4 / font-normal break-words"
+            className="break-words font-normal line-clamp-4"
             dangerouslySetInnerHTML={{
               __html: doctor.about,
             }}
           />
 
-          <Link href={`/doctors/${doctor.slug}`}>
-            <a className="bg-secondary focus:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-secondaryHover hover:no-underline / px-4 py-2 text-center text-white rounded-md transition-colors">
-              Consult - {doctor.price.formatted}
-            </a>
-          </Link>
+          <Button
+            onClick={() => router.push(`/doctors/${doctor.slug}`)}
+            isCentered
+          >
+            Consult - {doctor.price.formatted}
+          </Button>
         </div>
       </div>
     </div>
