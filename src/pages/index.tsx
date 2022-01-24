@@ -22,22 +22,25 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 
   return (
     <div className="space-y-8">
-      <section className="bg-transparent py-8">
+      <section className="bg-primary / py-8">
         <div className="layout">
-          <h1 className="text-primary text-center">Doctor Finder</h1>
-          <div className="space-y-4 mt-8">
-            <div className="max-w-xl mx-auto">
+          <h1 className="text-white">Doctor Finder</h1>
+          <div className="mt-8 space-y-4">
+            <div className="flex overflow-hidden bg-white rounded-md">
+              <div>
+                <img src="/static/icons/search.svg" />
+              </div>
               <input
-                className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm"
+                className="focus:outline-none focus:ring-2 focus:ring-secondary shadow-muted / px-4 py-2 w-full bg-transparent border shadow-sm"
                 type="search"
                 placeholder="Type to search..."
               />
             </div>
-            <div className="flex gap-4 max-w-xl mx-auto flex-col sm:flex-row">
-              <select className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm">
+            <div className="flex flex-col gap-4 mx-auto sm:flex-row">
+              <select className="focus:outline-none focus:ring-2 focus:ring-secondary shadow-muted / px-4 py-2 w-full rounded-md border shadow-sm">
                 <option>Hospital</option>
               </select>
-              <select className="w-full border border-muted rounded-lg px-4 py-2 focus:ring-secondary focus:ring-2 focus:outline-none shadow-muted shadow-sm">
+              <select className="focus:outline-none focus:ring-2 focus:ring-secondary shadow-muted / px-4 py-2 w-full rounded-md border shadow-sm">
                 <option>Specialization</option>
               </select>
             </div>
@@ -47,7 +50,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
 
       <section>
         <div className="layout">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {data?.data.map((doctor) => {
               return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
             })}
