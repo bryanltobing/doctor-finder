@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Doctor Finder
 
-## Getting Started
+## Live [Demo](https://doctor-finder-app.vercel.app/)
 
-First, run the development server:
+https://doctor-finder-woad.vercel.app/
 
-```bash
-npm run dev
-# or
+## Related link
+
+- [Api Used](https://run.mocky.io/v3/c9a2b598-9c93-4999-bd04-0194839ef2dc)
+
+## Installation
+
+```sh
+  package.json scripts
+   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
+  },
+
+```
+
+# to install all dependencies
+
+```
+yarn install
+```
+
+# run dev environment
+
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# build apps and run apps
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+yarn build && yarn start
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Screenshots
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Doctor finder home page](https://res.cloudinary.com/itdel/image/upload/v1643022799/doctor-finder-landing_vycjvf.png)
+![Doctor finder details page](https://res.cloudinary.com/itdel/image/upload/v1643022892/doctor-finder-details_mr9u15.png)
 
-## Learn More
+## Future Improvement
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [ ] Add animation & transition effect
