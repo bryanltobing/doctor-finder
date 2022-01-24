@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
 import useSWR from 'swr'
-import { HiSearch } from 'react-icons/hi'
+import { HiSearch, HiShieldCheck } from 'react-icons/hi'
 
 import DoctorCard from 'components/Cards/DoctorCard'
+import Button from 'components/_base/Button'
 
 import { DoctorListType } from 'types/swr'
 import { fetcher } from 'lib/helpers'
-import Button from 'components/_base/Button'
 
 type HomePageProps = {
   fallback: {
@@ -23,10 +23,12 @@ const HomePage: NextPage<HomePageProps> = (props) => {
   )
 
   return (
-    <div className="space-y-8">
+    <div>
       <section className="bg-primary-500 py-8">
         <div className="layout">
-          <h1 className="text-white">Doctor Finder</h1>
+          <h1 className="flex gap-2 items-center text-white w-full sm:gap-4">
+            Doctor Finder <HiShieldCheck />
+          </h1>
           <div className="mt-8 space-y-4">
             <div className="bg-white flex items-center overflow-hidden rounded-md">
               <div className="pl-4 py-2 text-muted text-xl">
@@ -45,18 +47,42 @@ const HomePage: NextPage<HomePageProps> = (props) => {
               </Button>
             </div>
             <div className="flex flex-col gap-4 mx-auto sm:flex-row">
-              <select className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full">
-                <option>Hospital</option>
+              <select
+                className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full"
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Hospital
+                </option>
+                {[
+                  ...new Set(
+                    data?.data.map((doctor) => doctor.hospital[0].name) || []
+                  ),
+                ].map((hospitalName, index) => {
+                  return <option key={index}>{hospitalName}</option>
+                })}
               </select>
-              <select className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full">
-                <option>Specialization</option>
+              <select
+                defaultValue=""
+                className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full"
+              >
+                <option value="" disabled hidden>
+                  Specialization
+                </option>
+                {[
+                  ...new Set(
+                    data?.data.map((doctor) => doctor.specialization.name) || []
+                  ),
+                ].map((specializationName, index) => {
+                  return <option key={index}>{specializationName}</option>
+                })}
               </select>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section className="py-8">
         <div className="layout">
           <div className="gap-8 grid grid-cols-1 sm:grid-cols-2">
             {data?.data.map((doctor) => {
