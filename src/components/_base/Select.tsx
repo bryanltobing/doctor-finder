@@ -16,7 +16,6 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       <select
         ref={ref}
         className={clsxm('border px-4 py-2 rounded-md w-full', className)}
-        defaultValue=""
         {...rest}
       >
         <option value="" disabled hidden>
