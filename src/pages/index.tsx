@@ -1,12 +1,14 @@
+import { useState } from 'react'
 import type { NextPage } from 'next'
 import useSWR from 'swr'
-import { HiSearch, HiShieldCheck } from 'react-icons/hi'
+import { HiSearch, HiShieldCheck, HiArrowCircleDown } from 'react-icons/hi'
 
 import DoctorCard from 'components/Cards/DoctorCard'
 import Button from 'components/_base/Button'
 
 import { DoctorListType } from 'types/swr'
 import { fetcher } from 'lib/helpers'
+import Select from 'components/_base/Select'
 
 type HomePageProps = {
   fallback: {
@@ -21,6 +23,8 @@ const HomePage: NextPage<HomePageProps> = (props) => {
       fallback: props.fallback,
     }
   )
+
+  const [doctors, setDoctors] = useState(data?.data || [])
 
   return (
     <div>
@@ -47,36 +51,38 @@ const HomePage: NextPage<HomePageProps> = (props) => {
               </Button>
             </div>
             <div className="flex flex-col gap-4 mx-auto sm:flex-row">
-              <select
-                className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Hospital
-                </option>
-                {[
-                  ...new Set(
-                    data?.data.map((doctor) => doctor.hospital[0].name) || []
-                  ),
-                ].map((hospitalName, index) => {
-                  return <option key={index}>{hospitalName}</option>
-                })}
-              </select>
-              <select
-                defaultValue=""
-                className="border focus:outline-none focus:ring-2 focus:ring-secondary px-4 py-2 rounded-md w-full"
-              >
-                <option value="" disabled hidden>
-                  Specialization
-                </option>
-                {[
-                  ...new Set(
-                    data?.data.map((doctor) => doctor.specialization.name) || []
-                  ),
-                ].map((specializationName, index) => {
-                  return <option key={index}>{specializationName}</option>
-                })}
-              </select>
+              <div className="relative w-full">
+                <HiArrowCircleDown className="-translate-y-1/2 absolute bottom-1/2 right-4 text-secondary-500 top-1/2 z-50" />
+                <Select
+                  className="text-muted"
+                  placeholder="Hospital"
+                  options={[
+                    ...new Set(
+                      data?.data.map((doctor) => doctor.hospital?.[0].name) ||
+                        []
+                    ),
+                  ].map((hospitalName) => ({
+                    label: hospitalName,
+                    value: hospitalName,
+                  }))}
+                />
+              </div>
+              <div className="relative w-full">
+                <HiArrowCircleDown className="-translate-y-1/2 absolute bottom-1/2 right-4 text-secondary-500 top-1/2 z-50" />
+                <Select
+                  className="text-muted"
+                  placeholder="Specialization"
+                  options={[
+                    ...new Set(
+                      data?.data.map((doctor) => doctor.specialization.name) ||
+                        []
+                    ),
+                  ].map((specializationName) => ({
+                    label: specializationName,
+                    value: specializationName,
+                  }))}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -85,7 +91,7 @@ const HomePage: NextPage<HomePageProps> = (props) => {
       <section className="py-8">
         <div className="layout">
           <div className="gap-8 grid grid-cols-1 sm:grid-cols-2">
-            {data?.data.map((doctor) => {
+            {doctors.map((doctor) => {
               return <DoctorCard doctor={doctor} key={doctor.doctor_id} />
             })}
           </div>

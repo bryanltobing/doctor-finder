@@ -45,4 +45,16 @@
   input {
     @apply focus:outline-none;
   }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+
+  .inset-center {
+    @apply absolute left-1/2 top-1/2;
+    transform: translate(-50%, -50%);
+  }
 }

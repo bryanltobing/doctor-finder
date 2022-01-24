@@ -31,13 +31,13 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
           </Link>
 
           <p className="font-bold">
-            Hospital:{' '}
+            Hospital :{' '}
             <span className="font-normal">{doctor.hospital[0].name}</span>
           </p>
 
           <p className="font-bold">
             Specialization :{' '}
-            <span className="bg-primary font-normal inline-flex px-2 py-1 rounded-md text-white">
+            <span className="bg-primary-500 font-normal inline-flex px-2 py-1 rounded-md text-white">
               {doctor.specialization.name}
             </span>
           </p>
@@ -50,6 +50,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
           />
 
           <Button
+            variant="secondary"
             onClick={() => router.push(`/doctors/${doctor.slug}`)}
             isCentered
           >
