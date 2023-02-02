@@ -10,6 +10,8 @@ https://doctor-finder-app.vercel.app/
 
 ## Installation
 
+make sure you have yarn installed
+
 ```sh
   package.json scripts
    "scripts": {
